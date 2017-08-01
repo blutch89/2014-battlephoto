@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:b="http://bootsfaces.net/ui">
+	
+	<h:body>
+		<ui:composition template="/template/layout-template.xhtml">
+			<ui:define name="title">#{userController.createPageTitle()}</ui:define>
+			
+<!-- 			<ui:define name="script-css"> -->
+<!-- 				<h:outputStylesheet library="css" name="jquery.centerthis.css"/> -->
+<!-- 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+<!-- 				<h:outputScript library="js" name="jquery.centerthis.js"/> -->
+<!-- 				<h:outputScript library="js" name="imageloaded.min.js"/> -->
+<!-- 			</ui:define> -->
+			
+			<ui:define name="content">
+				<div class="panel panel-default common-titlepanel">
+				  	<div class="panel-heading common-titlepanel-header">#{userController.createPageTitle()}</div>
+				</div>
+				
+				<div class="panel panel-default common-panel">
+					<div class="panel-body common-panel-body">
+						<h:panelGroup styleClass="pull-left" layout="block">
+							<h2>Photos de #{userController.user.username}</h2>
+							<p class="common-text-gray">Nombre de photos : #{userController.getNbPhotos()}</p>
+						</h:panelGroup>
+						
+						<h:panelGroup styleClass="pull-right" layout="block">
+							<h:panelGroup styleClass="pull-left viewuser-info-area">
+								<p class="common-text-gray">Actif depuis</p>
+								<p>#{userController.user.formatCreationDate()}</p>
+							</h:panelGroup>
+							<h:panelGroup styleClass="pull-left viewuser-info-area">
+								<p class="common-text-gray">Score</p>
+								<p>#{userController.user.score}</p>
+							</h:panelGroup>
+							<h:panelGroup styleClass="pull-left viewuser-info-area">
+								<p class="common-text-gray">Grade</p>
+								<p>
+									<c:forEach begin="1" end="5" varStatus="status">
+										<h:graphicImage library="images" name="#{userController.user.userGrade.medal.getMedalPath()}" width="22" rendered="#{status.index le userController.user.userGrade.nbMedals}"/>
+									</c:forEach>
+								</p>
+							</h:panelGroup>
+						</h:panelGroup>
+						<div class="clearfix"></div>
+						
+						<hr class="viewuser-hr"/>
+						
+						<div class="view-user-images-wall">
+							<c:forEach var="photo" items="#{userController.findMyPhotos()}">
+								<div class="viewuser-image pull-left">
+									<pretty:link mappingId="photo">
+										<f:param value="#{photo.id}"/>
+										<h:graphicImage library="photos" name="#{photo.fileName}-small.jpg" styleClass="article-img" style="display:none;"/>
+									</pretty:link>
+								</div>
+							</c:forEach>
+						</div>
+						
+						<h:outputText value="Cet utilisateur ne possède aucune photo" rendered="#{userController.getNbPhotos() eq 0}"/>
+					</div>
+				</div>				
+			</ui:define>
+		</ui:composition>
+	</h:body>
+	
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:b="http://bootsfaces.net/ui">
+	
+	<h:body>
+		<ui:composition template="/template/layout-template.xhtml">
+			<ui:define name="title">Battlephoto - Connexion</ui:define>
+					
+			<ui:define name="content">				
+				<div class="panel panel-default common-panel">
+					<div class="panel-heading common-secondpanel-header">Connexion</div>
+					<div class="panel-body common-panel-body">
+						<p class="help-block">Veuillez entrer votre nom d'utilisateur et votre mot de passe pour vous connecter.</p>
+						
+						<h:form role="form" prependId="false">
+							<div class="form-group">
+								<h:outputLabel for="j_username">Utilisateur</h:outputLabel>
+								<h:inputText id="j_username" class="form-control" requiredMessage="Ce champs est requis.">
+									<f:validateRequired/>
+								</h:inputText>
+								<h:message for="j_username"></h:message>
+							</div>
+							<div class="form-group">
+								<h:outputLabel for="j_password">Mot de passe</h:outputLabel>
+								<h:inputSecret id="j_password" class="form-control" requiredMessage="Ce champs est requis.">
+									<f:validateRequired/>
+								</h:inputSecret>
+								<h:message for="j_password"></h:message>
+							</div>
+							
+							<p><h:commandButton type="submit" value="Se connecter" action="#{loginController.doLogin()}" class="btn btn-default"/></p>
+							
+							<pretty:link mappingId="forget-password">Avez-vous oublié votre mot de passe ?</pretty:link>
+						</h:form>
+					</div>
+				</div>
+				
+				<div class="panel panel-default common-panel">
+					<div class="panel-heading common-secondpanel-header">S'inscrire</div>
+					<div class="panel-body common-panel-body">
+						<p class="help-block">Vous voulez pouvoir ajouter des photos et participer au classement des meilleurs photographes ? Alors il vous faut vous inscrire avec le formulaire ci-dessous.</p>
+						
+						<h:form role="form">
+							<h:panelGroup id="usernameGroup" class="form-group #{loginController.formClassUsername}" layout="block">
+								<h:outputLabel for="user">Utilisateur</h:outputLabel>
+								<h:inputText id="user" class="form-control" value="#{loginController.newUser.username}" requiredMessage="Ce champs est requis."
+											validator="#{loginController.validateUsername}" required="true">
+											
+											<f:ajax event="blur" render="userMessage usernameGroup" />
+								</h:inputText>
+								<h:message id="userMessage" for="user" styleClass="text-danger"></h:message>
+							</h:panelGroup>
+							<h:panelGroup id="emailGroup" class="form-group #{loginController.formClassEmail}" layout="block">
+								<h:outputLabel for="email">Email</h:outputLabel>
+								<h:inputText id="email" class="form-control" value="#{loginController.newUser.email}" requiredMessage="Ce champs est requis."
+											validator="#{loginController.validateEmail}" required="true">
+											
+											<f:ajax event="blur" render="emailMessage emailGroup" />
+								</h:inputText>
+								<h:message id="emailMessage" for="email" styleClass="text-danger"></h:message>
+							</h:panelGroup>
+							<h:panelGroup id="passwordGroup" class="form-group" layout="block">
+								<h:outputLabel for="password">Mot de passe</h:outputLabel>
+								<h:inputSecret id="password" class="form-control" value="#{loginController.newUser.password}" requiredMessage="Ce champs est requis."
+											required="true"/>
+								<h:message for="password" styleClass="text-danger"></h:message>
+							</h:panelGroup>
+							<h:panelGroup id="password2Group" class="form-group #{loginController.formClassPassword2}" layout="block">
+								<h:outputLabel for="password2">Retapez le mot de passe</h:outputLabel>
+								<h:inputSecret id="password2" class="form-control" value="#{loginController.password2}" requiredMessage="Ce champs est requis."
+											required="true" binding="#{loginController.password2Component}"/>
+								<h:message for="password2" styleClass="text-danger"></h:message>
+							</h:panelGroup>
+							
+							<p><h:commandButton action="#{loginController.signUp}" type="submit" class="btn btn-default" value="S'inscrire"/></p>
+						</h:form>
+					</div>
+				</div>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+	
+</html>

@@ -1,0 +1,43 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    
+	<!-- Hibernate session factory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    	<property name="dataSource">
+    		<ref bean="dataSource"/>
+    	</property>
+    	<property name="hibernateProperties">
+    		<props>
+    		    <!-- Props de base -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+  				<prop key="show_sql">true</prop>
+<!--   				<prop key="hibernate.current_session_context_class">thread</prop> -->
+				
+				<!-- Props pour éviter que la connexion lâche en prod -->
+<!-- 				<prop key="hibernate.c3p0.acquire_increment">1</prop> -->
+<!-- 				<prop key="hibernate.c3p0.idle_test_period">100</prop> -->
+<!-- 				<prop key="hibernate.c3p0.max_size">100</prop> -->
+<!-- 				<prop key="hibernate.c3p0.min_size">10</prop> -->
+<!-- 				<prop key="hibernate.c3p0.timeout">0</prop> -->
+<!-- 				<prop key="hibernate.c3p0.max_statements">0</prop> -->
+<!-- 				<prop key="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</prop> -->
+    		</props>
+    	</property>
+    	
+		<property name="annotatedClasses">
+			<list>
+				<value>ch.blutch.battlephoto.model.entity.Category</value>
+				<value>ch.blutch.battlephoto.model.entity.Photo</value>
+				<value>ch.blutch.battlephoto.model.entity.User</value>
+				<value>ch.blutch.battlephoto.model.entity.UserRole</value>
+				<value>ch.blutch.battlephoto.model.entity.Note</value>
+				<value>ch.blutch.battlephoto.model.entity.PasswordRequest</value>
+				<value>ch.blutch.battlephoto.model.entity.Message</value>
+			</list>
+		</property>
+    </bean>
+
+</beans>    

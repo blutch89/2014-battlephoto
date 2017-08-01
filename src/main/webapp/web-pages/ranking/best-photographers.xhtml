@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:b="http://bootsfaces.net/ui">
+	
+	<h:body>
+		<ui:composition template="/template/layout-template.xhtml">
+			<ui:define name="title">Classement</ui:define>			
+			
+			<ui:define name="content">
+				<div class="panel panel-default common-titlepanel">
+				  	<div class="panel-heading common-titlepanel-header">Classement</div>
+				</div>
+						
+				<div class="panel panel-default common-panel">
+					<div class="panel-body common-panel-body">
+						<p:dataTable id="datatable" widgetVar="datatableW" var="user" value="#{bestPhotographerController.bestPhotographers}" styleClass="common-datatable"
+						emptyMessage="Aucun utilisateur n'a été trouvée" lazy="true" paginator="true" rows="50" 
+	                 	paginatorTemplate="{FirstPageLink} {PageLinks} {LastPageLink}" paginatorPosition="bottom">
+	                 	
+	                 		<p:column>
+	                 			<f:facet name="header">Photographe</f:facet>
+								<pretty:link mappingId="viewuser">
+									<f:param value="#{user.id}"/>
+									<h:outputText value="#{user.username}" rendered="#{user.id ne bestPhotographerController.selectedUserId}"/>
+									<h:outputText value="#{user.username}" styleClass="text-danger" rendered="#{user.id eq bestPhotographerController.selectedUserId}"/>
+								</pretty:link>
+							</p:column>
+							<p:column>
+								<f:facet name="header">Nb photos</f:facet>
+								<h:outputText value="#{bestPhotographerController.getNbPhotosUser(user.id)}"/>
+							</p:column>
+							<p:column>
+								<f:facet name="header">Score</f:facet>
+								<h:outputText value="#{user.score}"/>
+							</p:column>
+							<p:column>
+								<f:facet name="header">Grade</f:facet>
+								<c:forEach begin="1" end="5" varStatus="status">
+									<h:graphicImage library="images" name="#{user.userGrade.medal.getMedalPath()}" width="30" rendered="#{status.index le user.userGrade.nbMedals}"/>
+								</c:forEach>
+							</p:column>
+	                 	</p:dataTable>
+					</div>
+				</div>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+	
+</html>

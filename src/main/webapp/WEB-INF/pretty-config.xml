@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+
+
+    <!-- Welcome page -->
+	<url-mapping id="index">
+		<pattern value="/"/>
+		<view-id value="/web-pages/display/slideshow.xhtml"/>
+	</url-mapping>
+	
+	<!-- Message -->
+	<url-mapping id="message">
+		<pattern value="/message/#{messageId}"/>
+		<view-id value="/web-pages/message.xhtml"/>
+	</url-mapping>
+	
+	<!-- Erreur -->
+	<url-mapping id="error">
+		<pattern value="/error/#{messageId}"/>
+		<view-id value="/web-pages/message-error.xhtml"/>
+	</url-mapping>
+	
+	<!-- Photo -->
+	<url-mapping id="photo">
+		<pattern value="/photo/#{photoId}"/>
+		<view-id value="/web-pages/display/photo.xhtml"/>
+	</url-mapping>
+    
+	<!-- Slideshow -->
+    <url-mapping id="slideshow">
+		<pattern value="/slideshow/#{idCat}/#{isBest}"/>
+		<view-id value="/web-pages/display/slideshow.xhtml"/>
+	</url-mapping>
+	
+    <!-- Best photographers -->
+    <url-mapping id="best-photographers">
+		<pattern value="/best-photographers"/>
+		<view-id value="/web-pages/ranking/best-photographers.xhtml"/>
+	</url-mapping>
+	
+    <!-- Page user étranger -->
+    <url-mapping id="viewuser">
+		<pattern value="/viewuser/#{userId}"/>
+		<view-id value="/web-pages/display/user.xhtml"/>
+	</url-mapping>
+	
+    <!-- Login -->
+	<url-mapping id="login">
+		<pattern value="/login"/>
+		<view-id value="/web-pages/login/login.xhtml"/>
+	</url-mapping>
+	
+	<!-- Forget password -->
+	<url-mapping id="forget-password">
+		<pattern value="/forget-password"/>
+		<view-id value="/web-pages/login/forget-password.xhtml"/>
+	</url-mapping>
+	
+	<!-- Password recovery -->
+	<url-mapping id="password-recovery">
+		<pattern value="/password-recovery/#{requestId}"/>
+		<view-id value="/web-pages/login/password-recovery.xhtml"/>
+	</url-mapping>
+	
+    <!-- Mon profil - Edition -->
+    <url-mapping id="myprofile-edit">
+		<pattern value="/user/myprofile-edit"/>
+		<view-id value="/web-pages/user/myprofile-edit.xhtml"/>
+	</url-mapping>
+	
+    <!-- Mes photos -->
+    <url-mapping id="myphotos">
+		<pattern value="/user/myphotos"/>
+		<view-id value="/web-pages/user/myphotos.xhtml"/>
+	</url-mapping>
+	
+    <!--  Mes photos - Edition -->
+    <url-mapping id="myphotos-edit">
+		<pattern value="/user/myphotos-edit/#{idPhoto}"/>
+		<view-id value="/web-pages/user/myphotos-edit.xhtml"/>
+	</url-mapping>
+	
+    <!-- Importer des photos -->
+    <url-mapping id="import-photos">
+		<pattern value="/user/photos-import"/>
+		<view-id value="/web-pages/user/import-photos.xhtml"/>
+	</url-mapping>
+    
+    <!-- Importer des photos - Edition -->
+    <url-mapping id="import-photos-edit">
+		<pattern value="/user/import-photos-edit"/>
+		<view-id value="/web-pages/user/import-photos-edit.xhtml"/>
+	</url-mapping>
+
+</pretty-config>

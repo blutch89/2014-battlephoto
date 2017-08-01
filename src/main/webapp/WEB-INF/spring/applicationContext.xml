@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<!-- Database Configuration -->
+	<import resource="database/DataSource.xml"/>
+	<import resource="database/Hibernate.xml"/>
+	<import resource="database/transactions.xml"/>
+	<import resource="security/security.xml"/>
+	
+	<!-- Auto scan the components -->
+	<context:component-scan base-package="ch.blutch.battlephoto" />
+	
+	<!-- Enable annotations -->
+	<context:annotation-config />
+	
+ 	<!-- AspectJ -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	
+	<!-- ViewScope pour Spring -->
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+	    <property name="scopes">
+	        <map>
+	            <entry key="view">
+	                <bean class="ch.blutch.battlephoto.model.ViewScope" />
+	            </entry>
+	        </map>
+	    </property>
+	</bean>
+	
+</beans>

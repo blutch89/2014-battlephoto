@@ -1,0 +1,297 @@
+h2 {
+	font-size: 24px;
+	margin-top: 0px;
+}
+
+body {
+	background-color: #EAEAEA !important;
+}
+
+/* ----- COMMONS ----- */
+.common-navbar {
+	
+}
+
+.common-main-container {
+	background-color: #FFFFFF;
+}
+
+.common-panel {
+	border-color: #D3D4D4;
+}
+
+.common-panel-body {
+	background-color: #FFFFFF;
+}
+
+.common-panel-body-large {
+	background-color: #FFFFFF;
+	padding: 0px;
+}
+
+.common-well {
+	background-color: #428BCA;
+	color: #FFFFFF;
+	
+	margin: 0px;
+}
+
+.panel-default > .common-panel-header {
+	background-color: #428bca;
+	color: white;
+	
+	margin: 0px;
+}
+
+.common-titlepanel {
+	
+}
+
+.panel-default > .common-titlepanel-header {
+	background-color: #428bca;
+	
+	padding: 5px 0px;
+	
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}
+
+.common-titlepanel-body-table {
+	width: 100%;
+}
+
+.common-titlepanel-body-table > tbody > tr {
+	height: 40px;
+}
+
+.common-titlepanel-body-table > tbody > tr > td {
+	text-align: center;
+}
+
+.common-titlepanel-body-btn {
+	width: 220px;
+}
+
+.common-titlepanel-body-btn:HOVER {
+	background-color: #f2f5f9;
+}
+
+.common-photo-panel-body {
+	background-color: #FFFFFF;
+	padding: 0px;
+}
+
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus, .common-active {
+	background-color: #f2f5f9;
+/* 	background-color: #D2D2D2; */
+	border: 0px;
+	
+	color: #555555;
+}
+
+.common-text-right {
+	text-align: right;
+}
+
+.common-text-gray {
+	color: gray;
+}
+
+.common-width-100 {
+	width: 100%;
+}
+
+/* ----- PRIMEFACES - DATATABLE ----- */
+.common-datatable {
+	border-collapse: separate;
+    border-spacing: 0;
+}
+
+.common-datatable tbody, .ui-widget-content {
+	border: 0;
+}
+
+.common-datatable thead th, .common-datatable tbody td, .common-datatable tfoot td {
+	line-height: 1.42857;
+    padding: 8px;
+    vertical-align: top;
+    font-size: 14px;
+    border: 0;
+}
+
+.common-datatable thead th {
+	background: transparent;
+	text-align: left;
+	border-top: 0 none;
+	border-bottom: 2px solid #ddd;
+    vertical-align: bottom;
+}
+
+.common-datatable tbody td, .common-datatable tfoot td {
+	border-top: 1px solid #ddd;
+}
+
+/* Datatable - paginator */
+.ui-paginator {
+	margin-top: 20px;
+	background: transparent;
+	border: 0;
+}
+
+/* Datatable - paginator */
+.ui-paginator > .ui-paginator-first, .ui-paginator > .ui-paginator-pages > .ui-paginator-page, .ui-paginator > .ui-paginator-last {
+	/* Bootstrap style */
+	background-color: #fff;
+    border-color: #ccc;
+    color: #333;
+
+    -moz-user-select: none;
+    background-image: none;
+    border-radius: 4px;
+    font-weight: 400;
+    line-height: 1.42857;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* Datatable - paginator */
+.ui-paginator > .ui-paginator-pages > .ui-state-active {
+	color: red;	
+}
+
+
+/* ----- PHOTO ----- */
+.photo-img {
+	width: 100%;
+	
+	margin-bottom: 10px;
+}
+
+/* ----- SLIDESHOW ----- */
+.slideshow-photoarea {
+	margin-bottom: 5px;
+}
+
+.slideshow-img {
+	width: 100%;
+	
+	margin-bottom: 10px;
+}
+
+.slideshow-description-link {
+	color: #555555;
+}
+
+.slideshow-description-area {
+	padding-left : 40px;
+	padding-right: 40px;
+}
+
+
+/* ----- VIEW USER ----- */
+.viewuser-info-area {
+	margin: 0 20px;
+}
+
+.viewuser-hr {
+	width: 100%;
+	height: 1px;
+	background-color: #428bca;
+}
+
+
+/* ----- IMPORT PHOTOS ----- */
+.importphotos-fileupload {
+	border: 1px solid #a8a8a8;
+	border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.importphotos-fileupload > .ui-fileupload-buttonbar {
+	background-color: #f2f5f9;
+	border: 0;
+}
+
+.importphotos-fileupload .ui-fileupload-choose, .importphotos-fileupload .ui-fileupload-upload, .importphotos-fileupload .ui-fileupload-cancel {
+	/* Bootstrap style */
+	background-color: #fff;
+    border-color: #ccc;
+    color: #333;
+
+    -moz-user-select: none;
+    background-image: none;
+    border-radius: 4px;
+    font-weight: 400;
+    line-height: 1.42857;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* ----- UPLOAD PHOTOS EDIT ----- */
+.uploadphotosedit-tr {
+	vertical-align: top;
+}
+
+.uploadphotosedit-td {
+	width: 50%;
+}
+
+/* ----- MY PHOTOS ----- */
+.myphotos-icons {
+	font-size: 110%;
+}
+
+/* ----- IMPORT PHOTOS EDIT ----- */
+.ui-picklist-list {
+	border: 1px solid #ABADB3;
+}
+
+.ui-picklist td {
+	padding: 5px;
+}
+
+.ui-button {
+	/* Bootstrap style */
+	background-color: #fff;
+    border-color: #ccc;
+    color: #333;
+
+    -moz-user-select: none;
+    background-image: none;
+    border-radius: 4px;
+    font-weight: 400;
+    line-height: 1.42857;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+/* ----- RIGHT COLUMN ----- */
+.rightcolumn-listgroup {
+	margin-bottom: 0px;
+}
+
+.rightcolumn-listgroup > .list-group-item {
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+	border-bottom: 2px solid #D3D4D4;
+}
+
+.rightcolumn-listgroup  > .list-group-item:HOVER {
+	background-color: #f2f5f9;
+	
+	color: #555555;
+}
+
+.rightcolumn-bestphotographers-datatable thead {
+	display: none;
+}
+
+
+
+

@@ -1,0 +1,23 @@
+.view-user-images-wall {
+	width: 100%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.viewuser-image {
+	width: 24%;
+	overflow: hidden;
+	margin-bottom: 8px;
+	margin-right: 1%;
+}
+
+.rightcolumn-images-wall {
+	width: 100%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.rightcolumn-image {
+	width: 33.33%;
+	overflow: hidden;
+}
